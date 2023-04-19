@@ -3,43 +3,6 @@ const mysql = require('mysql2/promise');
 
 const inquirer = require('inquirer');
 
-//function to view all departments 
-allDepartments = async () => {
-
-    //create db connection
-    const db = await mysql.createConnection({ host: 'localhost', user: 'root', password: '4613749J', database: 'employee_db' });
-
-    //run select query and console table results
-    const results = await db.query('SELECT id, dpt_name AS Department FROM department');
-
-    await console.table([...results[0]]);
-
-}
-
-//function to view  all roles 
-allRoles = async () => {
-
-    //create db connection
-    const db = await mysql.createConnection({ host: 'localhost', user: 'root', password: '4613749J', database: 'employee_db' });
-
-    //run select query and console table results
-    const results = await db.query('SELECT * FROM role');
-
-    await console.table([...results[0]]);
-}
-
-//function to view all employees 
-allEmployees = async () => {
-
-    //create db connection
-    const db = await mysql.createConnection({ host: 'localhost', user: 'root', password: '4613749J', database: 'employee_db' });
-
-    //run select query and console table results 
-    const results = await db.query('SELECT * FROM employee');
-
-    await console.table([...results[0]]);
-}
-
 //function to add a new department 
 addDepartment = async () => {
 
@@ -169,10 +132,8 @@ addNewEmployee = async () => {
 
 }
 
+
 module.exports = {
-    allDepartments,
-    allRoles,
-    allEmployees,
     addDepartment,
     addNewRole,
     addNewEmployee,

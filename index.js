@@ -1,7 +1,11 @@
 const inquirer = require('inquirer');
 
-//importing generateMArkdown javascript file 
-const { allDepartments, allRoles, allEmployees, addDepartment, addNewRole, addNewEmployee } = require('./queries/query.js');
+//importing functions from queries and insert queries js files 
+const { allDepartments, allRoles, allEmployees } = require('./queries/queries.js');
+
+const { addDepartment, addNewRole, addNewEmployee } = require('./queries/insertqueries.js');
+
+const { updateEmployee } = require('./queries/updatequeries.js');  
 
 
 const question = [
@@ -29,6 +33,8 @@ async function init() {
         addNewRole();
     } else if (data.choice === 'Add employee'){
         addNewEmployee();
+    } else if(data.choice === 'Update employee'){
+        updateEmployee();
     }
 
 }
