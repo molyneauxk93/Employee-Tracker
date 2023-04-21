@@ -64,12 +64,12 @@ addNewRole = async () => {
     //prompt questions 
     const data = await inquirer.prompt(questions);
 
-    const sql = `INSERT INTO role (title, salary, department_id) VALUES (?, ?, ?)`;
+    const sql = `INSERT INTO role (title, department_id, salary) VALUES (?, ?, ?)`;
 
     //Converting department id from user's choice to string 
     const user_choice = data.role_dpt.toString();
 
-    const params = await [data.new_role, data.role_salary, user_choice];
+    const params = await [data.new_role, user_choice, data.role_salary];
 
     //runs INSERT query and logs success message to console 
     await db.query(sql, params);
@@ -91,7 +91,6 @@ addNewEmployee = async () => {
     //get list of managers written in name value format to be called in choices inquirer prompt
     const list_managers = [{ name: "Josh Molyneaux", value: '1' }, { name: "Lucia Molyneaux", value: '3' }, { name: "Timmy Turner", value: '6' },];
 
-    await console.log(list_managers);
 
     const questions = [
         {

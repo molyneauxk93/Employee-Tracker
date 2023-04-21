@@ -9,7 +9,7 @@ const { allDepartments, allRoles, allEmployees } = require('./queries/queries.js
 
 const { addDepartment, addNewRole, addNewEmployee } = require('./queries/insertqueries.js');
 
-const { updateEmployee } = require('./queries/updatequeries.js');  
+const { updateEmployee } = require('./queries/updatequeries.js');
 
 
 const question = [
@@ -27,18 +27,18 @@ async function init() {
 
     switch(data.choice) {
         case 'View all Departments':
-            allDepartments(); 
+            allDepartments();
             break;
 
-        case 'View all roles': 
+        case 'View all roles':
             allRoles();
             break;
 
-        case 'View all employees': 
+        case 'View all employees':
             allEmployees();
             break;
 
-        case 'Add Department': 
+        case 'Add Department':
             addDepartment();
             break;
 
@@ -49,11 +49,11 @@ async function init() {
         case 'Add employee':
             addNewEmployee();
             break;
-        
+
         case 'Update employee':
             updateEmployee();
             break;
-        
+
         case 'Quit':
             process.exit();
 
