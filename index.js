@@ -13,7 +13,7 @@ const question = [
         type: 'list',
         message: 'What would you like to do?',
         name: 'choice',
-        choices: ['View all Departments', 'View all roles', 'View all employees', 'Add Department', 'Add role', 'Add employee', 'Update employee']
+        choices: ['View all Departments', 'View all roles', 'View all employees', 'Add Department', 'Add role', 'Add employee', 'Update employee', 'Quit']
     },
 ];
 
@@ -21,20 +21,38 @@ async function init() {
 
     const data = await inquirer.prompt(question);
 
-    if(data.choice === 'View all Departments') {
-        allDepartments();   
-    } else if (data.choice === 'View all roles') {
-        allRoles();
-    } else if (data.choice === 'View all employees') {
-        allEmployees();
-    } else if (data.choice === 'Add Department') {
-        addDepartment();
-    } else if(data.choice  === 'Add role') {
-        addNewRole();
-    } else if (data.choice === 'Add employee'){
-        addNewEmployee();
-    } else if(data.choice === 'Update employee'){
-        updateEmployee();
+    switch(data.choice) {
+        case 'View all Departments':
+            allDepartments(); 
+            break;
+
+        case 'View all roles': 
+            allRoles();
+            break;
+
+        case 'View all employees': 
+            allEmployees();
+            break;
+
+        case 'Add Department': 
+            addDepartment();
+            break;
+
+        case 'Add role':
+            addNewRole();
+            break;
+
+        case 'Add employee':
+            addNewEmployee();
+            break;
+        
+        case 'Update employee':
+            updateEmployee();
+            break;
+        
+        case 'Quit':
+            process.exit();
+
     }
 
 }

@@ -67,7 +67,7 @@ addNewRole = async () => {
     const sql = `INSERT INTO role (title, salary, department_id) VALUES (?, ?, ?)`;
 
     //Converting department id from user's choice to string 
-    user_choice = data.role_dpt.toString();
+    const user_choice = data.role_dpt.toString();
 
     const params = await [data.new_role, data.role_salary, user_choice];
 

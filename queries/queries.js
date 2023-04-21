@@ -13,7 +13,6 @@ allDepartments = async () => {
 
     await console.table([...results[0]]);
 
-
 }
 
 //function to view  all roles 

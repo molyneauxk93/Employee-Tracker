@@ -19,6 +19,7 @@
   "homepage": "https://github.com/molyneauxk93/Employee-Tracker#readme",
   "dependencies": {
     "inquirer": "^8.2.4",
+    "inquirer-loop": "^0.3.0",
     "mysql": "^2.18.1",
     "mysql2": "^3.2.3"
   }
