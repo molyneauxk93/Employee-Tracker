@@ -3,10 +3,11 @@ const mysql = require('mysql2/promise');
 
 const inquirer = require('inquirer');
 
+
 updateEmployee = async () => {
 
     //create db connection
-    const db = await mysql.createConnection({ host: 'localhost', user: 'root', password: '4613749J', database: 'employee_db' });
+    const db = await mysql.createConnection({ host: process.env.HOST, user: process.env.USER, password: process.env.SECRET_KEY , database: process.env.DATABASE });
 
     //get list of roles and converts json to appropriate format using .map()
     const role_results = await db.query('SELECT id, title FROM role');

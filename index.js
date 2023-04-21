@@ -1,3 +1,7 @@
+// .env file use 
+require('dotenv').config();
+
+//use inquirer
 const inquirer = require('inquirer');
 
 //importing functions from queries and insert queries js files 

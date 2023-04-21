@@ -22,7 +22,7 @@ addDepartment = async () => {
     const params = [data.dpt_name];
 
     //create db connection
-    const db = await mysql.createConnection({ host: 'localhost', user: 'root', password: '4613749J', database: 'employee_db' });
+    const db = await mysql.createConnection({ host: process.env.HOST, user: process.env.USER, password: process.env.SECRET_KEY , database: process.env.DATABASE });
 
     //runs INSERT query on database amd logs success message to console 
     await db.query(sql, params);
@@ -34,7 +34,7 @@ addDepartment = async () => {
 addNewRole = async () => {
 
     //create db connection
-    const db = await mysql.createConnection({ host: 'localhost', user: 'root', password: '4613749J', database: 'employee_db' });
+    const db = await mysql.createConnection({ host: process.env.HOST, user: process.env.USER, password: process.env.SECRET_KEY , database: process.env.DATABASE });
 
     //gets is and department name from department tableand then converts json to appropriate format using .map()
     const results = await db.query('SELECT id, dpt_name FROM department');
@@ -81,7 +81,7 @@ addNewRole = async () => {
 addNewEmployee = async () => {
 
     //create db connection
-    const db = await mysql.createConnection({ host: 'localhost', user: 'root', password: '4613749J', database: 'employee_db' });
+    const db = await mysql.createConnection({ host: process.env.HOST, user: process.env.USER, password: process.env.SECRET_KEY , database: process.env.DATABASE });
 
     //get list of roles and converts json to appropriate format using .map()
     const role_results = await db.query('SELECT id, title FROM role');
